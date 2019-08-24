@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -39,7 +40,8 @@ public class Signup_Form extends AppCompatActivity {
     EditText txtUsername;
 
     @BindView(R.id.btn3)
-    EditText btn3;
+    Button btn3;
+
     Preference preference;
 
     @Override
@@ -61,6 +63,7 @@ public class Signup_Form extends AppCompatActivity {
                     preference.setUser(new Gson().toJson(u));
                     Toast.makeText(getApplicationContext(), "Registration Completed Successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(Signup_Form.this, MainActivity.class));
+                    finishAffinity();
                 }
             }
         });

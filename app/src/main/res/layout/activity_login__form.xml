@@ -29,7 +29,7 @@
         android:layout_marginTop="5dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Username"
+        android:hint="Username"
         android:textColor="@color/colorAccent"
         android:textSize="20sp" />
 
@@ -40,7 +40,7 @@
         android:layout_marginTop="5dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Password"
+        android:hint="Password"
         android:textColor="@color/colorAccent"
         android:textSize="20sp" />
 
