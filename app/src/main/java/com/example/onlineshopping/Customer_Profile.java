@@ -2,8 +2,12 @@ package com.example.onlineshopping;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -45,6 +49,31 @@ public class Customer_Profile extends AppCompatActivity {
         txtContact.setText("Contact: " + user.getContact());
     }
 
+    public void logOutAlert() {
+        AlertDialog alertDialog = new AlertDialog.Builder(Customer_Profile.this).create();
+        alertDialog.setTitle("Online Shopping");
+        alertDialog.setMessage("Are you sure you want to log out ? ");
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        preference.setLoggedIn(false);
+                        startActivity(new Intent(Customer_Profile.this, Login_Form.class));
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                            finishAffinity();
+                        }
+
+                    }
+                });
+        alertDialog.show();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.profile, menu);
@@ -62,6 +91,7 @@ public class Customer_Profile extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
+            logOutAlert();
             return true;
         }
 
