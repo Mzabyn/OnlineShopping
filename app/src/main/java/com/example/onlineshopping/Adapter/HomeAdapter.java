@@ -32,7 +32,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>
 
     private List<Product> productList;
     private List<Product> filteredProductList;
-    Activity context;
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView name, price, desc;
         ImageView product_image;
@@ -47,10 +46,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>
     }
 
 
-    public HomeAdapter(List<Product> productList,Activity context) {
+    public HomeAdapter(List<Product> productList) {
         this.productList = productList;
         this.filteredProductList = productList;
-        this.context = context;
     }
 
     @Override
@@ -67,33 +65,19 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>
         holder.name.setText(product.getProduct_name());
         holder.price.setText(product.getPrice() + " BDT");
         holder.desc.setText(product.getDetails());
-        OkHttpClient.Builder builderPicasso = new OkHttpClient.Builder()
-                .protocols(Collections.singletonList(Protocol.HTTP_1_1));
 
-        final Picasso picasso = new Picasso.Builder(context)
-                .downloader(new com.squareup.picasso.OkHttp3Downloader(builderPicasso.build()))
-                .listener(new Picasso.Listener() {
-                    @Override
-                    public void onImageLoadFailed(Picasso picasso, Uri uri, Exception exception) {
-                        Log.e("Picasso", exception.getMessage());
-                    }
-                })
-                .build();
-
-        picasso.setLoggingEnabled(true);
-        picasso.get()
-                .load(product.getImage())
-                .placeholder(android.R.drawable.gallery_thumb)
+        Picasso.get().load(product.getImage())
+                .placeholder(android.R.drawable.ic_menu_gallery)
                 .error(android.R.drawable.stat_notify_error)
-                .into(holder.product_image, new Callback() {
+                .into(holder.product_image, new com.squareup.picasso.Callback() {
                     @Override
                     public void onSuccess() {
-
+                        holder.product_image.setAlpha(0f);
+                        holder.product_image.animate().setDuration(1000).alpha(1f).start();
                     }
 
                     @Override
                     public void onError(Exception e) {
-                        Log.d("Picasso:::", e.getMessage());
                     }
                 });
     }

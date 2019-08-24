@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         });
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
-        mAdapter = new HomeAdapter(homeproductList,this);
+        mAdapter = new HomeAdapter(homeproductList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
