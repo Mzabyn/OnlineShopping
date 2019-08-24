@@ -22,4 +22,28 @@
 
         />
 
+    <EditText
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Username"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"
+        />
+
+    <EditText
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Password"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"
+        />
+
 </LinearLayout>
