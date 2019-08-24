@@ -3,6 +3,7 @@ package com.example.onlineshopping;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 
 import butterknife.BindView;
@@ -41,6 +42,15 @@ public class Signup_Form extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup__form);
         ButterKnife.bind(this);
+
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(valid()){
+
+                }
+            }
+        });
     }
 
     public boolean valid() {
