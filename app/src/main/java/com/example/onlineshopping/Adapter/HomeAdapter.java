@@ -1,7 +1,9 @@
 package com.example.onlineshopping.Adapter;
 
+import android.app.Activity;
 import android.graphics.Movie;
 
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,14 +21,18 @@ import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Protocol;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>
         implements Filterable {
 
     private List<Product> productList;
     private List<Product> filteredProductList;
-
+    Activity context;
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView name, price, desc;
         ImageView product_image;
@@ -41,9 +47,10 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>
     }
 
 
-    public HomeAdapter(List<Product> productList) {
+    public HomeAdapter(List<Product> productList,Activity context) {
         this.productList = productList;
         this.filteredProductList = productList;
+        this.context = context;
     }
 
     @Override
@@ -60,8 +67,21 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>
         holder.name.setText(product.getProduct_name());
         holder.price.setText(product.getPrice() + " BDT");
         holder.desc.setText(product.getDetails());
+        OkHttpClient.Builder builderPicasso = new OkHttpClient.Builder()
+                .protocols(Collections.singletonList(Protocol.HTTP_1_1));
 
-        Picasso.get()
+        final Picasso picasso = new Picasso.Builder(context)
+                .downloader(new com.squareup.picasso.OkHttp3Downloader(builderPicasso.build()))
+                .listener(new Picasso.Listener() {
+                    @Override
+                    public void onImageLoadFailed(Picasso picasso, Uri uri, Exception exception) {
+                        Log.e("Picasso", exception.getMessage());
+                    }
+                })
+                .build();
+
+        picasso.setLoggingEnabled(true);
+        picasso.get()
                 .load(product.getImage())
                 .placeholder(android.R.drawable.gallery_thumb)
                 .error(android.R.drawable.stat_notify_error)
