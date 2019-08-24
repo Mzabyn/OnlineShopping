@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,11 +18,14 @@ import com.example.onlineshopping.R;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
+public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>
+        implements Filterable {
 
     private List<Product> productList;
+    private List<Product> filteredProductList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView name, price, desc;
@@ -38,6 +43,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
 
     public HomeAdapter(List<Product> productList) {
         this.productList = productList;
+        this.filteredProductList = productList;
     }
 
     @Override
@@ -67,13 +73,49 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
 
                     @Override
                     public void onError(Exception e) {
-                        Log.d("Picasso:::",e.getMessage());
+                        Log.d("Picasso:::", e.getMessage());
                     }
                 });
     }
 
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String charString = charSequence.toString();
+                if (charString.isEmpty()) {
+                    filteredProductList = productList;
+                } else {
+                    List<Product> filteredList = new ArrayList<>();
+                    for (Product row : productList) {
+
+                        // name match condition. this might differ depending on your requirement
+                        // here we are looking for name or phone number match
+                        if (row.getProduct_name().toLowerCase().contains(charString.toLowerCase())) {
+                            filteredList.add(row);
+                        }
+                    }
+
+                    filteredProductList = filteredList;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = filteredProductList;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                filteredProductList = (ArrayList<Product>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
+    }
+
     @Override
     public int getItemCount() {
-        return productList.size();
+        return filteredProductList.size();
     }
 }

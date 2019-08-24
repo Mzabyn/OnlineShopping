@@ -1,12 +1,17 @@
 package com.example.onlineshopping;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.graphics.Movie;
+import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.SearchView;
 
 import com.example.onlineshopping.Adapter.HomeAdapter;
 import com.example.onlineshopping.Model.Product;
@@ -20,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private HomeAdapter mAdapter;
+    private SearchView searchView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,38 +41,38 @@ public class MainActivity extends AppCompatActivity {
         readyHomeProductData();
     }
 
-    public void readyProfileData(){
+    public void readyProfileData() {
 
-        Product Blazer=new Product("Blazer","https://static-01.daraz.com.bd/original/3c62ec36f98e670c3b6ef504d330e27e.jpg",
-                "Blazer For Men Standard Fit",2350.00);
-        Product Mobile =new Product("Xiaomi Mi A1","https://static-01.daraz.com.bd/p/ffb442b93163d6b6eb9883c150f0abe7.jpg",
-                "Xiaomi Mi A1 - Smartphone - 5.5\" - 4GB RAM - 64GB ROM - 12MP Camera - Gold",23000.50);
-        Product Bike=new Product("Motorcycle","https://static-01.daraz.com.bd/p/a1e887b9350e9cf9acd45b3747972ebd.jpg",
-                "GPX Demon 150GR 150cc Motorcycle - White",26500.00);
-        Product Bike1=new Product("Suzuki Gixxer","https://static-01.daraz.com.bd/original/3d5fbadc876cbec076be088f0b3b581e.jpg",
-                "Suzuki Gixxer 2016 (Single Disc) - Blue",191950.00);
-        Product Bike2=new Product("Apache Motorcycle","https://static-01.daraz.com.bd/p/f3aec87fa60918d20162bb49e9c00dfc.jpg",
-                "Apache RTR 160CC Motor Cycle (SD) - Blue",164900.00);
-        Product Goggles=new Product("Under Water Goggles","https://static-01.daraz.com.bd/p/d4642aa0cbc416568ae8f3ab9d855b85.jpg",
-                "Swimming Goggles Women Men Swim Goggles Waterproof Suit HD Anti-Fog 100% UV Adjustable Prescription Glasses For Pools",950.00);
-        Product Boat=new Product("Air Boat","https://static-01.daraz.com.bd/original/d3be265b702d897c79a720e09b3117df.jpg",
-                "3 air chambers construction of the Boat",4990.00);
-        Product Ball=new Product("Swimming Ball","https://static-01.daraz.com.bd/original/aa7aa4b817a32160025704e92559a681.jpg",
-                "Swimming Ball - Orange and Black",500.00);
-        Product Television=new Product("Smart Television","https://static-01.daraz.com.bd/p/46f7017fa60914ae844c6fb980104baa.jpg",
-                "Full HD Internet TV 40'' - W652D - Black",36500.50);
-        Product Software=new Product("Adobe Photoshop","https://static-01.daraz.com.bd/p/777c2c8202cb80d56b6481710e54bf42.jpg",
-                "Adobe Photoshop CC 2019 [DVD]",550.00);
-        Product Software1=new Product("Windows 10","https://static-01.daraz.com.bd/p/2fe19352b097d0aa440b15eb7527dd05.jpg",
-                "Windows _10 all Version (32 and 64 bit) _DVD_Bootable",150.00);
-        Product Gloves=new Product("Hand Batting Gloves","https://static-01.daraz.com.bd/original/8522bb895762d676ff46a4522f39599b.jpg",
-                "Cricket Bating Hand Gloves - White",550.00);
-        Product Ball1=new Product("Crciket Ball","https://static-01.daraz.com.bd/original/d9fd7b5306c8be15101e50fcd9445a0d.jpg",
-                "Yourker Cricket Ball 6 Pcs - Red",1160.00);
-        Product Bat=new Product("Cricket Bat","https://static-01.daraz.com.bd/original/80d5d286d05aa8e4a6491dc9bdd6ff0f.jpg",
-                "Cricket Bat - Multi Color",1170.50);
-        Product Stump=new Product("Cricket Stump","https://static-01.daraz.com.bd/p/9e6fd4dfceff8143ff53b11487810a10.jpg",
-                "Cricket Plastic Stumps/Yellow,Blue",500.50);
+        Product Blazer = new Product("Blazer", "https://static-01.daraz.com.bd/original/3c62ec36f98e670c3b6ef504d330e27e.jpg",
+                "Blazer For Men Standard Fit", 2350.00);
+        Product Mobile = new Product("Xiaomi Mi A1", "https://static-01.daraz.com.bd/p/ffb442b93163d6b6eb9883c150f0abe7.jpg",
+                "Xiaomi Mi A1 - Smartphone - 5.5\" - 4GB RAM - 64GB ROM - 12MP Camera - Gold", 23000.50);
+        Product Bike = new Product("Motorcycle", "https://static-01.daraz.com.bd/p/a1e887b9350e9cf9acd45b3747972ebd.jpg",
+                "GPX Demon 150GR 150cc Motorcycle - White", 26500.00);
+        Product Bike1 = new Product("Suzuki Gixxer", "https://static-01.daraz.com.bd/original/3d5fbadc876cbec076be088f0b3b581e.jpg",
+                "Suzuki Gixxer 2016 (Single Disc) - Blue", 191950.00);
+        Product Bike2 = new Product("Apache Motorcycle", "https://static-01.daraz.com.bd/p/f3aec87fa60918d20162bb49e9c00dfc.jpg",
+                "Apache RTR 160CC Motor Cycle (SD) - Blue", 164900.00);
+        Product Goggles = new Product("Under Water Goggles", "https://static-01.daraz.com.bd/p/d4642aa0cbc416568ae8f3ab9d855b85.jpg",
+                "Swimming Goggles Women Men Swim Goggles Waterproof Suit HD Anti-Fog 100% UV Adjustable Prescription Glasses For Pools", 950.00);
+        Product Boat = new Product("Air Boat", "https://static-01.daraz.com.bd/original/d3be265b702d897c79a720e09b3117df.jpg",
+                "3 air chambers construction of the Boat", 4990.00);
+        Product Ball = new Product("Swimming Ball", "https://static-01.daraz.com.bd/original/aa7aa4b817a32160025704e92559a681.jpg",
+                "Swimming Ball - Orange and Black", 500.00);
+        Product Television = new Product("Smart Television", "https://static-01.daraz.com.bd/p/46f7017fa60914ae844c6fb980104baa.jpg",
+                "Full HD Internet TV 40'' - W652D - Black", 36500.50);
+        Product Software = new Product("Adobe Photoshop", "https://static-01.daraz.com.bd/p/777c2c8202cb80d56b6481710e54bf42.jpg",
+                "Adobe Photoshop CC 2019 [DVD]", 550.00);
+        Product Software1 = new Product("Windows 10", "https://static-01.daraz.com.bd/p/2fe19352b097d0aa440b15eb7527dd05.jpg",
+                "Windows _10 all Version (32 and 64 bit) _DVD_Bootable", 150.00);
+        Product Gloves = new Product("Hand Batting Gloves", "https://static-01.daraz.com.bd/original/8522bb895762d676ff46a4522f39599b.jpg",
+                "Cricket Bating Hand Gloves - White", 550.00);
+        Product Ball1 = new Product("Crciket Ball", "https://static-01.daraz.com.bd/original/d9fd7b5306c8be15101e50fcd9445a0d.jpg",
+                "Yourker Cricket Ball 6 Pcs - Red", 1160.00);
+        Product Bat = new Product("Cricket Bat", "https://static-01.daraz.com.bd/original/80d5d286d05aa8e4a6491dc9bdd6ff0f.jpg",
+                "Cricket Bat - Multi Color", 1170.50);
+        Product Stump = new Product("Cricket Stump", "https://static-01.daraz.com.bd/p/9e6fd4dfceff8143ff53b11487810a10.jpg",
+                "Cricket Plastic Stumps/Yellow,Blue", 500.50);
 
 
         profileProductList.add(Blazer);
@@ -86,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
         profileProductList.add(Stump);
 
     }
+
     public void readyHomeProductData() {
         Product watch = new Product("Rolex",
                 "https://rolex.com/content/dam/rolex-58/homepage/roller-collection/baselworld/roller-static/homepage_new_yacht-master_42_0001_1050x825.jpg",
@@ -140,4 +147,54 @@ public class MainActivity extends AppCompatActivity {
 
         mAdapter.notifyDataSetChanged();
     }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+
+        // Associate searchable configuration with the SearchView
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        searchView = (SearchView) menu.findItem(R.id.action_search)
+                .getActionView();
+        searchView.setSearchableInfo(searchManager
+                .getSearchableInfo(getComponentName()));
+        searchView.setMaxWidth(Integer.MAX_VALUE);
+
+        // listening to search query text change
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // filter recycler view when query submitted
+                mAdapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                // filter recycler view when text is changed
+                mAdapter.getFilter().filter(query);
+                return false;
+            }
+        });
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_search) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
 }
