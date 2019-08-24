@@ -15,12 +15,13 @@ public class Signup_Form extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup__form);
 
-        button1=(Button) findViewById(R.id.btn1);
+        button1=(Button) findViewById(R.id.btn3);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Signup_Form.this,Login_Form.class);
+                startActivity(intent);
 
             }
         });
