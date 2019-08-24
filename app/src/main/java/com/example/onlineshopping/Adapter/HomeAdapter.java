@@ -56,7 +56,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        Product product = productList.get(position);
+        Product product = filteredProductList.get(position);
         holder.name.setText(product.getProduct_name());
         holder.price.setText(product.getPrice() + " BDT");
         holder.desc.setText(product.getDetails());

@@ -38,6 +38,7 @@ public class Login_Form extends AppCompatActivity {
         user = new Gson().fromJson(preference.getUser(), User.class);
         if (preference.isLoggedIn()) {
             startActivity(new Intent(Login_Form.this, MainActivity.class));
+            finish();
         }
         setContentView(R.layout.activity_login__form);
         ButterKnife.bind(this);
