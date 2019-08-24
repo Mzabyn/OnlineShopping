@@ -30,13 +30,17 @@ public class Login_Form extends AppCompatActivity {
     Button btnReg;
     @BindView(R.id.btnLogin)
     Button btnLogin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login__form);
-        ButterKnife.bind(this);
         preference = new Preference(this);
         user = new Gson().fromJson(preference.getUser(), User.class);
+        if (preference.isLoggedIn()) {
+            startActivity(new Intent(Login_Form.this, MainActivity.class));
+        }
+        setContentView(R.layout.activity_login__form);
+        ButterKnife.bind(this);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
