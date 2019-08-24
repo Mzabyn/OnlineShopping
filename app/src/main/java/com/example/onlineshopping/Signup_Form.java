@@ -2,11 +2,15 @@ package com.example.onlineshopping;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.example.onlineshopping.Helper.Preference;
 import com.example.onlineshopping.Model.User;
+import com.google.gson.Gson;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,14 +41,14 @@ public class Signup_Form extends AppCompatActivity {
 
     @BindView(R.id.btn3)
     EditText btn3;
-
+    Preference preference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup__form);
         ButterKnife.bind(this);
-
+        preference = new Preference(this);
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,7 +59,9 @@ public class Signup_Form extends AppCompatActivity {
                             txtContact.getText().toString(),
                             txtUsername.getText().toString(),
                             txtPass.getText().toString());
-
+                    preference.setUser(new Gson().toJson(u));
+                    Toast.makeText(getApplicationContext(), "Registration Completed Successfully", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(Signup_Form.this, MainActivity.class));
                 }
             }
         });
