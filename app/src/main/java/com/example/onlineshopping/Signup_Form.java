@@ -35,7 +35,6 @@ public class Signup_Form extends AppCompatActivity {
     @BindView(R.id.txtRepass)
     EditText txtRepass;
 
-
     @BindView(R.id.txtUsername)
     EditText txtUsername;
 
@@ -43,7 +42,6 @@ public class Signup_Form extends AppCompatActivity {
     EditText btn3;
     Preference preference;
 
-    Button button1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
