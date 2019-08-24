@@ -4,68 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="60dp"
+    android:background="@android:color/white"
     android:orientation="vertical"
-    android:background="@color/White"
     android:padding="30dp"
-    tools:context=".Login_Form"
-    android:layout_marginTop="60dp">
+    tools:context=".Login_Form">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Online Shopping Application"
+        android:textColor="@android:color/holo_red_dark"
         android:textSize="40dp"
         android:textStyle="bold"
-        android:textColor="@color/Purple"
 
 
         />
 
     <EditText
-
+        android:id="@+id/txtUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="Username"
         android:textColor="@color/colorAccent"
-        android:layout_marginTop="5dp"
-        android:textSize="20sp"
-        />
+        android:textSize="20sp" />
 
     <EditText
-
+        android:id="@+id/txtPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="Password"
         android:textColor="@color/colorAccent"
-        android:layout_marginTop="5dp"
-        android:textSize="20sp"
-        />
+        android:textSize="20sp" />
 
     <Button
-
+        android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login"
-        android:id="@+id/btn1"
+        android:textColor="@android:color/holo_red_dark"
         android:textSize="20sp"
-        android:textColor="@color/Purple"
 
         />
-    <Button
 
+    <Button
+        android:id="@+id/btnReg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Signup"
-        android:id="@+id/btn2"
-        android:textSize="20sp"
-        android:textColor="@color/Purple"
-
-        />
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="20sp" />
 
 
 </LinearLayout>

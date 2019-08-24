@@ -8,16 +8,23 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.SearchView;
 
 import com.example.onlineshopping.Adapter.HomeAdapter;
 import com.example.onlineshopping.Model.Product;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<Product> homeproductList = new ArrayList<>();
@@ -26,11 +33,20 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private HomeAdapter mAdapter;
     private SearchView searchView;
+    @BindView(R.id.fab)
+    FloatingActionButton fab;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        ButterKnife.bind(this);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, Customer_Profile.class));
+            }
+        });
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
         mAdapter = new HomeAdapter(homeproductList);

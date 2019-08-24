@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_marginTop="60dp"
+    android:background="@android:color/white"
     android:orientation="vertical"
-    android:background="@color/White"
     android:padding="30dp"
+<<<<<<< HEAD
     tools:context=".Login_Form"
     android:layout_marginTop="10dp">
 
@@ -91,18 +93,115 @@
         android:hint="Confirm Password"
         android:textColor="@color/colorAccent"
         android:textSize="17sp" />
+=======
+    tools:context=".Login_Form">
 
-    <Button
-        android:id="@+id/btn3"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registration"
-        android:textColor="@color/Purple"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:orientation="vertical">
 
-        />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Online Shopping Application"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="40dp"
+            android:textStyle="bold" />
 
+        <EditText
+            android:id="@+id/txtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="03dp"
+            android:ems="10"
+            android:hint="Full Name"
+            android:inputType="textPersonName"
+            android:textColor="@color/colorAccent"
+            android:textSize="17sp" />
 
+        <EditText
+            android:id="@+id/txtAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="03dp"
+            android:ems="10"
+            android:hint="Address"
+            android:inputType="textPersonName"
+            android:textColor="@color/colorAccent"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/txtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="03dp"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textPersonName"
+            android:textColor="@color/colorAccent"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/txtContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="03dp"
+            android:ems="10"
+            android:hint="Contact Number"
+            android:inputType="textPersonName"
+            android:textColor="@color/colorAccent"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/txtUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="03dp"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName"
+            android:textColor="@color/colorAccent"
+            android:textSize="17sp" />
+>>>>>>> c52ee531bbdcbf5e1c3e71aa2bdc6a37b0ed4a1a
+
+        <EditText
+            android:id="@+id/txtPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="03dp"
+            android:ems="10"
+            android:hint="Enter Password"
+            android:inputType="textPassword"
+            android:textColor="@color/colorAccent"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/txtRepass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="03dp"
+            android:ems="10"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:textColor="@color/colorAccent"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registration"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+
+<<<<<<< HEAD
 
 </LinearLayout>
+=======
+            />
+    </LinearLayout>
+</ScrollView>
+>>>>>>> c52ee531bbdcbf5e1c3e71aa2bdc6a37b0ed4a1a
