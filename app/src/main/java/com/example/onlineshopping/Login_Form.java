@@ -2,13 +2,65 @@ package com.example.onlineshopping;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.onlineshopping.Helper.Preference;
+import com.example.onlineshopping.Model.User;
+import com.google.gson.Gson;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class Login_Form extends AppCompatActivity {
+
+    Preference preference;
+    User user;
+
+
+    @BindView(R.id.txtUsername)
+    EditText txtUsername;
+    @BindView(R.id.txtPass)
+    EditText txtPass;
+    @BindView(R.id.btnReg)
+    Button btnReg;
+    @BindView(R.id.btnLogin)
+    Button btnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login__form);
+        ButterKnife.bind(this);
+        preference = new Preference(this);
+        user = new Gson().fromJson(preference.getUser(), User.class);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (user == null) {
+                    Toast.makeText(getApplicationContext(), "No user found", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (!user.getUsername().equals(txtUsername.getText().toString())) {
+                        Toast.makeText(getApplicationContext(), "Invalid username", Toast.LENGTH_SHORT).show();
+                    } else if (!user.getPassword().equals(txtPass.getText().toString())) {
+                        Toast.makeText(getApplicationContext(), "Invalid password", Toast.LENGTH_SHORT).show();
+                    } else {
+                        startActivity(new Intent(Login_Form.this, MainActivity.class));
+                    }
+                }
+            }
+        });
+        btnReg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Login_Form.this, Signup_Form.class));
+            }
+        });
     }
+
+
 }

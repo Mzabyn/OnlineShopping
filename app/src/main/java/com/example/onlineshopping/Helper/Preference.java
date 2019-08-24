@@ -19,7 +19,7 @@ public class Preference {
         editor.commit();
     }
 
-    public String getDiscountTransactionID() {
+    public String getUser() {
         return sharedPreferences.getString(REG_USER, "");
     }
 }
