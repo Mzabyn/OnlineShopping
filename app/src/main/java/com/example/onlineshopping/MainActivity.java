@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
-        mAdapter.notifyDataSetChanged();
+        readyHomeProductData();
     }
 
     public void readyProfileData(){
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void readyHomeProductData() {
         Product watch = new Product("Rolex",
-                "rolex.com/content/dam/rolex-58/homepage/roller-collection/baselworld/roller-static/homepage_new_yacht-master_42_0001_1050x825.jpg",
+                "https://rolex.com/content/dam/rolex-58/homepage/roller-collection/baselworld/roller-static/homepage_new_yacht-master_42_0001_1050x825.jpg",
                 "bla bla bla bal abla ", 120000.00);
         Product M3band = new Product("Band M3", "https://static-01.daraz.com.bd/p/47d726227604c332022cf74bd6103302.jpg",
                 "Original Quality Band M3 Waterproof Smart Fitness Tracker -Black", 300.50);
@@ -137,5 +137,7 @@ public class MainActivity extends AppCompatActivity {
         homeproductList.add(Shirt);
         homeproductList.add(Camera);
         homeproductList.add(Suit);
+
+        mAdapter.notifyDataSetChanged();
     }
 }

@@ -2,6 +2,7 @@ package com.example.onlineshopping.Adapter;
 
 import android.graphics.Movie;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.onlineshopping.Model.Product;
 import com.example.onlineshopping.R;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -52,7 +54,22 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
         holder.name.setText(product.getProduct_name());
         holder.price.setText(product.getPrice() + " BDT");
         holder.desc.setText(product.getDetails());
-        Picasso.get().load(product.getImage()).into(holder.product_image);
+
+        Picasso.get()
+                .load(product.getImage())
+                .placeholder(android.R.drawable.gallery_thumb)
+                .error(android.R.drawable.stat_notify_error)
+                .into(holder.product_image, new Callback() {
+                    @Override
+                    public void onSuccess() {
+
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        Log.d("Picasso:::",e.getMessage());
+                    }
+                });
     }
 
     @Override
