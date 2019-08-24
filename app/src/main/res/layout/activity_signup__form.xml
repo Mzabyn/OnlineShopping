@@ -21,5 +21,75 @@
 
 
         />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="03dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Full Name"
+        android:textColor="@color/colorAccent"
+        android:textSize="17sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="03dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Address"
+        android:textColor="@color/colorAccent"
+        android:textSize="17sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="03dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Email"
+        android:textColor="@color/colorAccent"
+        android:textSize="17sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="03dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Contact Number"
+        android:textColor="@color/colorAccent"
+        android:textSize="17sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="03dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Username"
+        android:textColor="@color/colorAccent"
+        android:textSize="17sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="03dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Enter Password"
+        android:textColor="@color/colorAccent"
+        android:textSize="17sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="03dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Confirm Password"
+        android:textColor="@color/colorAccent"
+        android:textSize="17sp" />
+
 
 </LinearLayout>
