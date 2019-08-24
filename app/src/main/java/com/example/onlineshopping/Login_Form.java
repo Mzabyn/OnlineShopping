@@ -30,7 +30,6 @@ public class Login_Form extends AppCompatActivity {
     Button btnReg;
     @BindView(R.id.btnLogin)
     Button btnLogin;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

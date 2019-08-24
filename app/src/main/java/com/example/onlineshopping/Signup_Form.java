@@ -43,6 +43,7 @@ public class Signup_Form extends AppCompatActivity {
     EditText btn3;
     Preference preference;
 
+    Button button1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,8 +91,6 @@ public class Signup_Form extends AppCompatActivity {
             txtName.setError("Re enter your password correctly");
             return false;
         }
-
-
         return true;
     }
 }
