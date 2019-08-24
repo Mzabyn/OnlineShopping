@@ -52,7 +52,9 @@ public class Login_Form extends AppCompatActivity {
                     } else if (!user.getPassword().equals(txtPass.getText().toString())) {
                         Toast.makeText(getApplicationContext(), "Invalid password", Toast.LENGTH_SHORT).show();
                     } else {
+                        preference.setLoggedIn(true);
                         startActivity(new Intent(Login_Form.this, MainActivity.class));
+                        finish();
                     }
                 }
             }

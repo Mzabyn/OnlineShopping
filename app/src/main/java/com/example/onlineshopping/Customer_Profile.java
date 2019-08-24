@@ -35,8 +35,8 @@ public class Customer_Profile extends AppCompatActivity {
         user = new Gson().fromJson(preference.getUser(), User.class);
 
         txtName.setText("Name: " + user.getName());
-        txtName.setText("Address: " + user.getAddress());
-        txtName.setText("Email: " + user.getEmail());
-        txtName.setText("Contact: " + user.getContact());
+        txtAddress.setText("Address: " + user.getAddress());
+        txtEmail.setText("Email: " + user.getEmail());
+        txtContact.setText("Contact: " + user.getContact());
     }
 }

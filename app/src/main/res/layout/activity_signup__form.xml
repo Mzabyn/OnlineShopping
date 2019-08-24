@@ -57,7 +57,7 @@
             android:textColor="@color/colorAccent"
             android:textSize="17sp" />
 
-        <TextView
+        <EditText
             android:id="@+id/txtContact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -3,6 +3,7 @@ package com.example.onlineshopping;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -62,8 +63,11 @@ public class Signup_Form extends AppCompatActivity {
                             txtPass.getText().toString());
                     preference.setUser(new Gson().toJson(u));
                     Toast.makeText(getApplicationContext(), "Registration Completed Successfully", Toast.LENGTH_SHORT).show();
+                    preference.setLoggedIn(true);
                     startActivity(new Intent(Signup_Form.this, MainActivity.class));
-                    finishAffinity();
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        finishAffinity();
+                    }
                 }
             }
         });
