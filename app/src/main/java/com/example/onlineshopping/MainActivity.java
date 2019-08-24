@@ -1,23 +1,38 @@
 package com.example.onlineshopping;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Movie;
 import android.os.Bundle;
 
+import com.example.onlineshopping.Adapter.HomeAdapter;
 import com.example.onlineshopping.Model.Product;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<Product> homeproductList = new ArrayList<>();
     ArrayList<Product> profileProductList = new ArrayList<>();
 
+    private RecyclerView recyclerView;
+    private HomeAdapter mAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
+        mAdapter = new HomeAdapter(homeproductList);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(mAdapter);
+        mAdapter.notifyDataSetChanged();
     }
 
     public void readyProfileData(){
