@@ -92,7 +92,7 @@
         android:textSize="17sp" />
 
     <Button
-        android:id="@+id/btn3"
+        android:id="@+id/btn1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Registration"
