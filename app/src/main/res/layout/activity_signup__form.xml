@@ -4,24 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="20dp"
-    android:background="@android:color/white"
     android:orientation="vertical"
+    android:background="@color/White"
     android:padding="30dp"
-    tools:context=".Signup_Form">
+    tools:context=".Login_Form"
+    android:layout_marginTop="60dp">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Online Shopping Application"
-        android:textColor="@android:color/holo_red_dark"
-        android:textSize="25sp"
+        android:textColor="@color/Purple"
+        android:textSize="40dp"
         android:textStyle="bold"
 
 
         />
-
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -97,7 +96,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Registration"
-        android:textColor="@android:color/holo_red_dark"
+        android:textColor="@color/Purple"
         android:textSize="20sp"
         android:textStyle="bold"
 
