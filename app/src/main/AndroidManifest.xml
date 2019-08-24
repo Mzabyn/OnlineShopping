@@ -15,7 +15,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Signup_Form"></activity>
+        <activity android:name=".Login_Form"></activity>
+        <activity android:name=".Signup_Form" />
 
         <uses-library
             android:name="org.apache.http.legacy"
