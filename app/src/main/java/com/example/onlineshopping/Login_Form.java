@@ -15,8 +15,8 @@ public class Login_Form extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login__form);
 
-        button1=(Button) findViewById(R.id.btn1);
-        button2=(Button) findViewById(R.id.btn2);
+        button1=(Button) findViewById(R.id.btn2);
+        button2=(Button) findViewById(R.id.btn1);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
