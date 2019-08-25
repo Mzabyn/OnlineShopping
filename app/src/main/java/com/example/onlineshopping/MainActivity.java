@@ -17,6 +17,8 @@ import android.widget.EditText;
 import android.widget.SearchView;
 
 import com.example.onlineshopping.Adapter.HomeAdapter;
+import com.example.onlineshopping.Helper.Preference;
+import com.example.onlineshopping.Model.Cart;
 import com.example.onlineshopping.Model.Product;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -29,19 +31,22 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity {
     ArrayList<Product> homeproductList = new ArrayList<>();
     ArrayList<Product> profileProductList = new ArrayList<>();
+    ArrayList<Cart> cartList = new ArrayList<>();
 
     private RecyclerView recyclerView;
     private HomeAdapter mAdapter;
     private SearchView searchView;
-
+    Preference preference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        preference = new Preference(this);
+
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        mAdapter = new HomeAdapter(homeproductList);
+        mAdapter = new HomeAdapter(homeproductList, cartList, this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
