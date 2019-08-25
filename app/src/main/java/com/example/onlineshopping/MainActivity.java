@@ -33,22 +33,14 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private HomeAdapter mAdapter;
     private SearchView searchView;
-    @BindView(R.id.fab)
-    FloatingActionButton fab;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, Customer_Profile.class));
-            }
-        });
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-
         mAdapter = new HomeAdapter(homeproductList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
@@ -206,6 +198,11 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_search) {
+            return true;
+        }
+
+        if (id == R.id.action_profile) {
+            startActivity(new Intent(MainActivity.this, Customer_Profile.class));
             return true;
         }
 

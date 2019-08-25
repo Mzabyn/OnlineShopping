@@ -7,6 +7,13 @@
         android:icon="@android:drawable/ic_menu_search"
         android:orderInCategory="100"
         android:title="Search"
-        app:showAsAction="always"
-        app:actionViewClass="android.widget.SearchView" />
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_profile"
+        android:icon="@drawable/ic_profile"
+        android:orderInCategory="100"
+        android:title="Profile"
+        app:showAsAction="always" />
 </menu>
